@@ -14,6 +14,7 @@ module.exports = {
   },
   extends: [
     'react-app',
+    'plugin:react/recommended',
     'plugin:react-hooks/recommended'
   ],
   rules: {
@@ -23,5 +24,7 @@ module.exports = {
     quotes: [1, 'single'],
     semi: 1,
     'jsx-quotes': [1, 'prefer-single'],
+    'object-curly-spacing': [1, 'always'],
+    'no-trailing-spaces': 1
   }
 };
