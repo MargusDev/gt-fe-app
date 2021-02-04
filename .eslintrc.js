@@ -25,6 +25,7 @@ module.exports = {
     semi: 1,
     'jsx-quotes': [1, 'prefer-single'],
     'object-curly-spacing': [1, 'always'],
-    'no-trailing-spaces': 1
+    'no-trailing-spaces': 1,
+    indent: [1, 2],
   }
 };
