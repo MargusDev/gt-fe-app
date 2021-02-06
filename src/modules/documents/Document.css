@@ -1,0 +1,35 @@
+.Document--container {
+  padding: 10px 20px 10px 20px;
+  border: 1px solid #858585;
+  border-radius: 4px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: #f7f7f7;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05);
+  
+  display: flex;
+}
+
+.Document--section {
+  flex: 1;
+}
+
+.Document--prop {
+  padding: 3px 0 3px 0;
+}
+
+.Document--section.text-section {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (max-width: 768px) {
+  .Document--container {
+    flex-direction: column;
+  }
+
+  .Document--section.text-section {
+    text-align: left;
+  }
+}

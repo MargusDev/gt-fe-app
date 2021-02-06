@@ -1,0 +1,7 @@
+.Document--list-item {
+  list-style-type: none;
+}
+
+.Document--list-root {
+  padding-left: 0;
+}

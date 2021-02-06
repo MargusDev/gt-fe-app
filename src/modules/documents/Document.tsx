@@ -1,4 +1,5 @@
 import React from 'react';
+import './Document.css';
 
 export interface DocumentProps {
   id: string,
@@ -11,8 +12,18 @@ export interface DocumentProps {
 
 const Document = ({ id, filename, author, created_at, hash, size }: DocumentProps) => {
   return (
-    <div>
-      {id}-{filename}-{author}-{created_at}-{hash}-{size}
+    <div className='Document--container'>
+      <div className='Document--section text-section'>
+        <span className='Document--prop' aria-label='Document ID'>{id}</span>
+        <span className='Document--prop' aria-label='Document hash'>{hash}</span>
+        <span className='Document--prop' aria-label='Author'>{author}</span>
+      </div>
+      <div className='Document--section text-section'>
+        <span className='Document--prop' aria-label='File name'>{filename}</span>
+        <span className='Document--prop' aria-label='File size'>{size} kb</span>
+        <span className='Document--prop' aria-label='Document created at'>{new Date(created_at).toLocaleString()}</span>
+      </div>
+      <div className='Document--section'>-</div>
     </div>
   );
 };
