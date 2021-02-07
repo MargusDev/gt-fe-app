@@ -1,0 +1,8 @@
+.Header--container {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #ededed;
+}

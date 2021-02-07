@@ -28,7 +28,7 @@ test('should return empty state intially', async () => {
   expect(result.current.state).toStrictEqual({});
 });
 
-test('should validate checksum first', async () => {
+test('should pass all checks for single document', async () => {
   const { result, waitForNextUpdate } = renderHook(() => useDocumentChecking(testDocuments));
 
   act(() => {
@@ -39,6 +39,29 @@ test('should validate checksum first', async () => {
 
   expect(result.current.state).toStrictEqual({
     '1': {
+      checksum: ValidityStatus.Valid,
+      schema: ValidityStatus.Valid,
+      signature: ValidityStatus.Valid,
+    }
+  });
+});
+
+test('should validate all documents', async () => {
+  const { result, waitForNextUpdate } = renderHook(() => useDocumentChecking(testDocuments));
+
+  act(() => {
+    result.current.checkAllDocuments();
+  });
+
+  await waitForNextUpdate();
+
+  expect(result.current.state).toStrictEqual({
+    '1': {
+      checksum: ValidityStatus.Valid,
+      schema: ValidityStatus.Valid,
+      signature: ValidityStatus.Valid,
+    },
+    '2': {
       checksum: ValidityStatus.Valid,
       schema: ValidityStatus.Valid,
       signature: ValidityStatus.Valid,

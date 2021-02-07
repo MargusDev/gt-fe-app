@@ -15,14 +15,14 @@ export interface ValidityState {
 const reducer = (state: ValidityState, action: Action) => {
   switch (action.type) {
   case 'initiateCheck':
-    const documentState: ValidityCheckState = {
+    const voidDocumentState: ValidityCheckState = {
       'checksum': ValidityStatus.Void,
       'schema': ValidityStatus.Void,
       'signature': ValidityStatus.Void,
     };
     return {
       ...state,
-      [action.id]: documentState,
+      [action.id]: { ...voidDocumentState },
     };
   case 'markStatus':
     return {
@@ -32,7 +32,6 @@ const reducer = (state: ValidityState, action: Action) => {
         [action.key]: action.status
       }
     };
-
   default:
     throw new Error();
   }
@@ -95,8 +94,33 @@ export default function useDocumentChecking(documents: DocumentProps[]) {
     [checkValidity],
   );
 
+  const checkAllDocuments = useCallback(
+    () => {
+      const allIds = documents.map(doc => doc.id).filter(id => {
+        if (state[id] === undefined) {
+          return true;
+        }
+
+        const { checksum, signature, schema } = state[id];
+        const values = [checksum, signature, schema];
+        if (values.every(v => v === ValidityStatus.Void)) {
+          return true;
+        } else if (values.some(v => v === ValidityStatus.Error)) {
+          return true;
+        } else if (values.some(v => v === ValidityStatus.Invalid)) {
+          return true;
+        } else if (values.every(v => v === ValidityStatus.Valid)) {
+          return true;
+        } else return false;
+      });
+      allIds.map(checkDocument);
+    },
+    [checkDocument, documents, state],
+  );
+
   return {
     state,
-    checkDocument
+    checkDocument,
+    checkAllDocuments
   };
 }

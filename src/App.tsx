@@ -8,6 +8,7 @@ import api from './modules/api/apiCalls';
 import { useInView } from 'react-intersection-observer';
 import useInfiniteScrolling from './modules/hooks/useInfiniteScrolling';
 import CheckDocumentsProvider from './modules/providers/CheckDocumentsProvider';
+import Header from './modules/api/header/Header';
 
 interface MetaDataType {
   pagesCount?: number,
@@ -38,6 +39,7 @@ function App() {
   return (
     <div className='App--root'>
       <CheckDocumentsProvider allDocuments={documents}>
+        <Header />
         <List documents={documents} />
         <div ref={ref}>
           <MoreButton paginationStatus={paginationStatus} fetchMore={fetchNextPage} endReached={metaData.pagesCount === page} />

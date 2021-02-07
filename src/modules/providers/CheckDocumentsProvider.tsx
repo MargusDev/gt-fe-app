@@ -16,21 +16,24 @@ export interface ValidityCheckState {
 
 interface CheckDocumentsContextValue {
   checkDocument: (id: string) => void,
+  checkAllDocuments: () => void,
   state: ValidityState
 }
 
 export const CheckDocumentsContext = createContext<CheckDocumentsContextValue>({
   checkDocument: () => undefined,
+  checkAllDocuments: () => undefined,
   state: {},
 });
 
 const CheckDocumentsProvider = ({ children, allDocuments }: Props) => {
-  const { checkDocument, state } = useDocumentChecking(allDocuments);
+  const { checkDocument, state, checkAllDocuments } = useDocumentChecking(allDocuments);
 
   const contextValue = useMemo(() => ({
     checkDocument,
-    state
-  }), [checkDocument, state]);
+    state,
+    checkAllDocuments
+  }), [checkAllDocuments, checkDocument, state]);
 
   return (
     <CheckDocumentsContext.Provider value={contextValue}>
