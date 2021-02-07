@@ -1,0 +1,25 @@
+.ValidityIndicator--container {
+  padding: 2px;
+  border: 1px solid #252525;
+  background-color: #e2e2e2;
+  margin: 1px;
+  border-radius: 3px;
+}
+
+.ValidityIndicator--container.valid {
+  border-color: #0f4b00;
+  background-color: #9dffa1;
+  color: #0f4b00;
+}
+
+.ValidityIndicator--container.pending {
+  border-color: #444900;
+  background-color: #f8ff9d;
+  color: #444900;
+}
+
+.ValidityIndicator--container.invalid, .ValidityIndicator--container.error {
+  border-color: #490000;
+  background-color: #ff9d9d;
+  color: #490000;
+}

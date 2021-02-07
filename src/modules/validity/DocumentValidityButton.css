@@ -1,0 +1,38 @@
+.DocumentValidityButton {
+  width: 100%;
+  height: 100%;
+  margin-left: 5px;
+  border-radius: 3px;
+  border-width: 1px;
+  background-color: #dfdfdf;
+}
+
+.DocumentValidityButton:hover {
+  background-color: #b1b1b1;
+}
+
+.DocumentValidityButton.valid {
+  border-color: #0f4b00;
+  background-color: #9dffa1;
+  color: #0f4b00;
+}
+
+.DocumentValidityButton.valid:hover {
+  background-color: #80cf84;
+}
+
+.DocumentValidityButton.pending {
+  border-color: #444900;
+  background-color: #fbffbc;
+  color: #444900;
+}
+
+.DocumentValidityButton.invalid {
+  border-color: #490000;
+  background-color: #ff9d9d;
+  color: #490000;
+}
+
+.DocumentValidityButton.invalid:hover {
+  background-color: #da8787;
+}

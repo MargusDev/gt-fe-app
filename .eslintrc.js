@@ -27,5 +27,6 @@ module.exports = {
     'object-curly-spacing': [1, 'always'],
     'no-trailing-spaces': 1,
     indent: [1, 2],
+    'react/display-name': 0
   }
 };

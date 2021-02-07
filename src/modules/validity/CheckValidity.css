@@ -1,0 +1,7 @@
+.CheckValidity--container {
+  display: flex;
+}
+
+.CheckValidity--section {
+  flex: 1;
+}

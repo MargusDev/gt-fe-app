@@ -1,4 +1,5 @@
 import React from 'react';
+import CheckValidity from '../validity/CheckValidity';
 import './Document.css';
 
 export interface DocumentProps {
@@ -23,7 +24,9 @@ const Document = ({ id, filename, author, created_at, hash, size }: DocumentProp
         <span className='Document--prop' aria-label='File size'>{size} kb</span>
         <span className='Document--prop' aria-label='Document created at'>{new Date(created_at).toLocaleString()}</span>
       </div>
-      <div className='Document--section'>-</div>
+      <div className='Document--section'>
+        <CheckValidity documentId={id} />
+      </div>
     </div>
   );
 };
