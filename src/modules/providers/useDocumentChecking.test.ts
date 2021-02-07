@@ -1,4 +1,3 @@
-import React from 'react';
 import { act } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { DocumentProps } from '../documents/Document';
